@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "description": "Monorepo for MdEditor UIs and addons.",
+  "license": "GPLv3",
+  "author": "ADIWG",
+  "workspaces": {
+    "packages": [
+      "addons/*",
+      "ui/*"
+    ]
+  },
+  "scripts": {
+    "build": "yarn build:ui:admin",
+    "build:ui:admin": "cd ui/admin && yarn build",
+    "lint": "npm-run-all lint:*",
+    "lint:addons-api": "cd addons/api && yarn lint",
+    "lint:addons-core": "cd addons/core && yarn lint",
+    "lint:ui-admin": "cd ui/admin && yarn lint",
+    "test": "npm-run-all test:*",
+    "test:addons-api": "cd addons/api && yarn test",
+    "test:addons-core": "cd addons/core && yarn test",
+    "test:ui-admin": "cd ui/admin && yarn test",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.1.0",
+    "git-cz": "^4.8.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.2"
+  },
+  "resolutions": {},
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": "12.* || 14.* || 16.*"
+  }
+}
